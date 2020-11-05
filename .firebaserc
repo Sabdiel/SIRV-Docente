@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "loginpro-c808c": {
+      "hosting": {
+        "loginpro": [
+          "loginpro-c808c"
+        ]
+      }
+    }
+  }
+}

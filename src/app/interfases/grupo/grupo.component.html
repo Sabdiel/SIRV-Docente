@@ -1,0 +1,81 @@
+<div class="alert alert-secondary" role="alert" *ngFor="let item of items">
+  <h7>{{item.id}}</h7><br>
+  <h7>Link: {{item.name}}</h7><br>
+  <h7>Fecha: {{item.name2}}</h7><br>
+  <h7>Hora: {{item.name3}}</h7><br>
+  <h7>Comentarios: {{item.name4}}</h7>
+
+  <div class="float-right" (click)="eliminar(item)">
+    <i class="far fa-trash-alt"></i>
+  </div>
+
+  <div class="float-right mx-4" (click)="editar(item)" data-toggle="modal" data-target="#exampleModal">
+    <i class="far fa-edit"></i>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Campos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="agregarItemEditado()">
+          <input 
+          type="text" placeholder="" 
+          name="name" class="form-control" 
+          [(ngModel)]="editarItem.name">
+          <br>
+          <input 
+          type="text" placeholder="" 
+          name="name2" class="form-control" 
+          [(ngModel)]="editarItem.name2">
+          <br>
+          <input 
+          type="text" placeholder="" 
+          name="name3" class="form-control" 
+          [(ngModel)]="editarItem.name3">
+          <br>
+          <input 
+          type="text" placeholder="" 
+          name="name4" class="form-control" 
+          [(ngModel)]="editarItem.name4">
+          <button class="btn btn-warning mt-3" type="submit">Editar</button>
+      </form>      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form (ngSubmit)="agregar()">
+  <input 
+  type="text" placeholder="Ingresa el Likn a la Reunion" 
+  name="name" class="form-control" 
+  [(ngModel)]="item.name">
+  <br>
+  <input 
+  type="text" placeholder="Ingresa la Fecha" 
+  name="name2" class="form-control" 
+  [(ngModel)]="item.name2">
+  <br>
+  <input 
+  type="text" placeholder="Ingresa la Hora" 
+  name="name2" class="form-control" 
+  [(ngModel)]="item.name3">
+  <br>
+  <input 
+  type="text" placeholder="Ingresa comentarios Extra" 
+  name="name2" class="form-control" 
+  [(ngModel)]="item.name4">
+  <button class="btn btn-warning mt-3" type="submit">Agregar</button>
+</form>
+
+
